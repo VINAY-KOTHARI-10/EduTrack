@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduTrack — Feedback</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#F97316"/><path d="M9 12h14M9 16h10M9 20h12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <span class="brand-name">EduTrack</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item"><span class="nav-icon">⬡</span><span>Dashboard</span></a>
+        <a href="students.html" class="nav-item"><span class="nav-icon">◈</span><span>Students</span></a>
+        <a href="attendance.html" class="nav-item"><span class="nav-icon">◉</span><span>Attendance</span></a>
+        <a href="feedback.html" class="nav-item active"><span class="nav-icon">◎</span><span>Feedback</span></a>
+        <a href="reports.html" class="nav-item"><span class="nav-icon">▣</span><span>Reports</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-badge">
+          <div class="user-avatar">A</div>
+          <div><div class="user-name">Admin</div><div class="user-role">Faculty Portal</div></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="topbar-left">
+          <h1 class="page-title">Feedback</h1>
+          <p class="page-subtitle">Collect and analyze student feedback</p>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Submit Feedback</h2>
+          </div>
+          <div class="att-control-row">
+            <div class="form-group">
+              <label>Student</label>
+              <select id="fbStudent">
+                <option value="">Select Student</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <select id="fbSubject">
+                <option value="">Select Subject</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Feedback Type</label>
+              <select id="fbType">
+                <option value="general">General</option>
+                <option value="teaching">Teaching Quality</option>
+                <option value="content">Course Content</option>
+                <option value="difficulty">Difficulty Level</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="padding: 0 22px 18px; display: grid; gap: 14px;">
+            <div class="form-group">
+              <label>Rating</label>
+              <div class="star-rating" aria-label="Rating">
+                <span class="star" data-val="1">★</span>
+                <span class="star" data-val="2">★</span>
+                <span class="star" data-val="3">★</span>
+                <span class="star" data-val="4">★</span>
+                <span class="star" data-val="5">★</span>
+              </div>
+              <input type="hidden" id="fbRating" value="0" />
+            </div>
+
+            <div class="form-group">
+              <label>Comment</label>
+              <textarea id="fbComment" rows="4" placeholder="Share your feedback here..."></textarea>
+            </div>
+
+            <label class="toggle-label" for="fbAnonymous">
+              <input type="checkbox" id="fbAnonymous" />
+              <span class="toggle-track"></span>
+              Submit anonymously
+            </label>
+
+            <div>
+              <button class="btn-primary" id="submitFeedbackBtn">Submit Feedback</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Recent Feedback</h2>
+            <select id="filterFbSubject" class="filter-select small">
+              <option value="">All Subjects</option>
+            </select>
+          </div>
+          <div id="feedbackList" class="feedback-cards">
+            <div class="loading-dots"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Feedback Insights</h2>
+          </div>
+          <div id="feedbackInsights">
+            <div class="loading-dots"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="api.js"></script>
+  <script src="feedback.js"></script>
+</body>
+</html>

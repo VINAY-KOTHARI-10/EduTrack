@@ -1,0 +1,140 @@
+{
+  "students": [
+    {
+      "id": "s001",
+      "name": "Aanya Sharma",
+      "rollNo": "CS2021001",
+      "class": "CS-A",
+      "email": "aanya@edu.in",
+      "phone": "9876543210"
+    },
+    {
+      "id": "s002",
+      "name": "Rohan Mehta",
+      "rollNo": "CS2021002",
+      "class": "CS-A",
+      "email": "rohan@edu.in",
+      "phone": "9876543211"
+    },
+    {
+      "id": "s003",
+      "name": "Priya Patel",
+      "rollNo": "CS2021003",
+      "class": "CS-B",
+      "email": "priya@edu.in",
+      "phone": "9876543212"
+    },
+    {
+      "id": "s004",
+      "name": "Arjun Verma",
+      "rollNo": "CS2021004",
+      "class": "CS-B",
+      "email": "arjun@edu.in",
+      "phone": "9876543213"
+    },
+    {
+      "id": "s005",
+      "name": "Neha Singh",
+      "rollNo": "CS2021005",
+      "class": "CS-A",
+      "email": "neha@edu.in",
+      "phone": "9876543214"
+    },
+    {
+      "id": "s006",
+      "name": "Karan Joshi",
+      "rollNo": "CS2021006",
+      "class": "CS-C",
+      "email": "karan@edu.in",
+      "phone": "9876543215"
+    },
+    {
+      "id": "s007",
+      "name": "Divya Nair",
+      "rollNo": "CS2021007",
+      "class": "CS-C",
+      "email": "divya@edu.in",
+      "phone": "9876543216"
+    },
+    {
+      "id": "s008",
+      "name": "Vikram Das",
+      "rollNo": "CS2021008",
+      "class": "CS-A",
+      "email": "vikram@edu.in",
+      "phone": "9876543217"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "sub001",
+      "name": "Data Structures",
+      "code": "CS301",
+      "class": "CS-A",
+      "teacher": "Dr. Ramesh Kumar"
+    },
+    {
+      "id": "sub002",
+      "name": "Operating Systems",
+      "code": "CS302",
+      "class": "CS-A",
+      "teacher": "Prof. Meera Iyer"
+    },
+    {
+      "id": "sub003",
+      "name": "Database Management",
+      "code": "CS303",
+      "class": "CS-B",
+      "teacher": "Dr. Suresh Reddy"
+    },
+    {
+      "id": "sub004",
+      "name": "Computer Networks",
+      "code": "CS304",
+      "class": "CS-C",
+      "teacher": "Dr. Anita Gupta"
+    },
+    {
+      "id": "sub005",
+      "name": "Software Engineering",
+      "code": "CS305",
+      "class": "CS-B",
+      "teacher": "Prof. Vikas Bhatia"
+    }
+  ],
+  "attendance": [
+    {
+      "id": "att17772064292470.06604043651239588",
+      "date": "2026-04-26",
+      "subjectId": "sub001",
+      "studentId": "s001",
+      "status": "absent",
+      "markedAt": "2026-04-26T12:27:09.247Z"
+    },
+    {
+      "id": "att17772064292470.15387574107262392",
+      "date": "2026-04-26",
+      "subjectId": "sub001",
+      "studentId": "s002",
+      "status": "absent",
+      "markedAt": "2026-04-26T12:27:09.247Z"
+    },
+    {
+      "id": "att17772064292470.7243475387270801",
+      "date": "2026-04-26",
+      "subjectId": "sub001",
+      "studentId": "s005",
+      "status": "present",
+      "markedAt": "2026-04-26T12:27:09.247Z"
+    },
+    {
+      "id": "att17772064292470.5846457535547434",
+      "date": "2026-04-26",
+      "subjectId": "sub001",
+      "studentId": "s008",
+      "status": "present",
+      "markedAt": "2026-04-26T12:27:09.247Z"
+    }
+  ],
+  "feedback": []
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduTrack — Student Management System</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#F97316"/><path d="M9 12h14M9 16h10M9 20h12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <span class="brand-name">EduTrack</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">⬡</span><span>Dashboard</span>
+        </a>
+        <a href="students.html" class="nav-item" data-page="students">
+          <span class="nav-icon">◈</span><span>Students</span>
+        </a>
+        <a href="attendance.html" class="nav-item" data-page="attendance">
+          <span class="nav-icon">◉</span><span>Attendance</span>
+        </a>
+        <a href="feedback.html" class="nav-item" data-page="feedback">
+          <span class="nav-icon">◎</span><span>Feedback</span>
+        </a>
+        <a href="reports.html" class="nav-item" data-page="reports">
+          <span class="nav-icon">▣</span><span>Reports</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-badge">
+          <div class="user-avatar">A</div>
+          <div>
+            <div class="user-name">Admin</div>
+            <div class="user-role">Faculty Portal</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="topbar-left">
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle" id="todayDate"></p>
+        </div>
+        <div class="topbar-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search students..." id="globalSearch" />
+            <span class="search-icon">⌕</span>
+          </div>
+          <div class="notification-bell" title="Alerts">
+            <span>🔔</span>
+            <span class="notif-dot" id="notifDot"></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-area" id="contentArea">
+        <!-- Stats Cards -->
+        <section class="stats-grid" id="statsGrid">
+          <div class="stat-card" id="cardStudents">
+            <div class="stat-icon orange">◈</div>
+            <div class="stat-value" id="statStudents">—</div>
+            <div class="stat-label">Total Students</div>
+            <div class="stat-trend up">↑ Active</div>
+          </div>
+          <div class="stat-card" id="cardSubjects">
+            <div class="stat-icon teal">▦</div>
+            <div class="stat-value" id="statSubjects">—</div>
+            <div class="stat-label">Subjects</div>
+            <div class="stat-trend">This Semester</div>
+          </div>
+          <div class="stat-card" id="cardPresent">
+            <div class="stat-icon green">●</div>
+            <div class="stat-value" id="statPresent">—</div>
+            <div class="stat-label">Present Today</div>
+            <div class="stat-trend up" id="presentPercent">—</div>
+          </div>
+          <div class="stat-card" id="cardFeedback">
+            <div class="stat-icon purple">◎</div>
+            <div class="stat-value" id="statFeedback">—</div>
+            <div class="stat-label">Avg. Feedback Rating</div>
+            <div class="stat-trend" id="feedbackCount">—</div>
+          </div>
+          <div class="stat-card alert-card" id="cardAlert">
+            <div class="stat-icon red">⚠</div>
+            <div class="stat-value" id="statAlert">—</div>
+            <div class="stat-label">Low Attendance (&lt;75%)</div>
+            <div class="stat-trend down" id="alertLabel">Needs Attention</div>
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+          <h2 class="section-title">Quick Actions</h2>
+          <div class="action-row">
+            <a href="attendance.html" class="action-btn primary">
+              <span>◉</span> Mark Today's Attendance
+            </a>
+            <a href="feedback.html" class="action-btn secondary">
+              <span>◎</span> Submit Feedback
+            </a>
+            <a href="students.html" class="action-btn tertiary">
+              <span>◈</span> Add Student
+            </a>
+            <a href="reports.html" class="action-btn ghost">
+              <span>▣</span> View Reports
+            </a>
+          </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="two-col-section">
+          <div class="panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Attendance Overview</h2>
+              <a href="attendance.html" class="panel-link">View All →</a>
+            </div>
+            <div id="attendanceOverview" class="overview-list">
+              <div class="loading-dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Recent Feedback</h2>
+              <a href="feedback.html" class="panel-link">View All →</a>
+            </div>
+            <div id="recentFeedback" class="overview-list">
+              <div class="loading-dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

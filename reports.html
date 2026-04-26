@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduTrack — Reports</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#F97316"/><path d="M9 12h14M9 16h10M9 20h12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <span class="brand-name">EduTrack</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item"><span class="nav-icon">⬡</span><span>Dashboard</span></a>
+        <a href="students.html" class="nav-item"><span class="nav-icon">◈</span><span>Students</span></a>
+        <a href="attendance.html" class="nav-item"><span class="nav-icon">◉</span><span>Attendance</span></a>
+        <a href="feedback.html" class="nav-item"><span class="nav-icon">◎</span><span>Feedback</span></a>
+        <a href="reports.html" class="nav-item active"><span class="nav-icon">▣</span><span>Reports</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-badge">
+          <div class="user-avatar">A</div>
+          <div><div class="user-name">Admin</div><div class="user-role">Faculty Portal</div></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="topbar-left">
+          <h1 class="page-title">Reports</h1>
+          <p class="page-subtitle">Attendance analytics and insights</p>
+        </div>
+        <div class="topbar-right">
+          <button class="btn-primary" id="exportBtn">↓ Export CSV</button>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- Attendance Summary Table -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Student Attendance Summary</h2>
+            <select class="filter-select small" id="reportFilter">
+              <option value="all">All Students</option>
+              <option value="low">Low Attendance (&lt;75%)</option>
+              <option value="good">Good Attendance (≥75%)</option>
+            </select>
+          </div>
+
+          <!-- Visual Bar Chart -->
+          <div id="attendanceChart" class="bar-chart-container"></div>
+
+          <div class="table-wrapper">
+            <table class="data-table" id="reportTable">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Class</th>
+                  <th>Total Classes</th>
+                  <th>Present</th>
+                  <th>Absent</th>
+                  <th>Late</th>
+                  <th>Attendance %</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="reportTableBody">
+                <tr><td colspan="8" class="table-loading"><div class="loading-dots"><span></span><span></span><span></span></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Subject-wise stats -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Subject-wise Feedback Ratings</h2>
+          </div>
+          <div id="subjectFeedbackChart" class="bar-chart-container"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="reports.js"></script>
+</body>
+</html>

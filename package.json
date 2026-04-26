@@ -1,0 +1,12 @@
+{
+  "name": "student-attendance-feedback-system",
+  "version": "1.0.0",
+  "description": "Student Attendance and Feedback Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
