@@ -9,7 +9,7 @@ function resolveApiBase() {
   }
 
   // Live Server / static dev frontend can call local backend.
-  if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+  if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' || window.location.protocol === 'file:') {
     return 'http://localhost:3000';
   }
 
@@ -27,21 +27,20 @@ function toApiUrl(path) {
 
 const API = {
   async get(path) {
-    const r = await fetch(toApiUrl(path));
+    const r = await authFetch(toApiUrl(path));
     if (!r.ok) throw new Error(await r.text());
     return r.json();
   },
   async post(path, body) {
-    const r = await fetch(toApiUrl(path), {
+    const r = await authFetch(toApiUrl(path), {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
     if (!r.ok) throw new Error(await r.text());
     return r.json();
   },
   async del(path) {
-    const r = await fetch(toApiUrl(path), { method: 'DELETE' });
+    const r = await authFetch(toApiUrl(path), { method: 'DELETE' });
     return r.json();
   }
 };
